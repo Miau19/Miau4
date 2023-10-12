@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles-1d.css" />
+    <!--
+    <link rel="stylesheet" href="css/Saira_Expanded-Medium.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@500&display=swap" rel="stylesheet">
+    -->
+    <title>CF[2023]-1d</title>
+    <style type="text/css">
+      /*NOTA:
+      Cualquier cambio en los estilos del select que puede no verse igual en todos los navegadores y aún así las opciones son limitadas, 
+      pero una manera de hacerlo es usar un div que al clickarlo despliegue una lista con JavaScript y cada "li" sea una de las opciones, 
+      simulando un select. Luego, cada vez que elijas una opción, su valor debe guardarse en donde debería ir el valor del select.
+      Los estilos de los option son específicos a cada navegador y como mucho podrás actualizar los colores (y en algunos navegadores ni eso).   */
+      /*
+      @font-face {
+        font-family: "Saira Expanded Medium";
+        src: url("css/Saira_Expanded-Medium.ttf");
+      }
+      .opcion{
+        font-family: 'Saira Expanded Medium', sans-serif;/*NO CARGA 'Saira Expanded Medium' , SOLO sans-serif
+      }
+      */
+
+    </style>
+  </head> 
+  <body class="" onload="onload()"><!-- body  class="dark" -->
+     
+  <header class="header">
+      <!-- MENU BAR TOGGLE --> 
+      <nav class="nav">
+        <div class="switches">
+          <div id="toggle-theme" class="toggle-theme">
+ 
+          <div id="menu" class="nav-toggle" onclick="">
+           <svg class="svg_menu" viewBox="0 0 21 10" >
+             <g id="Page-1" stroke="none" stroke-width="1" fill="" fill-rule="evenodd">
+                 <g id="Dribbble-Light-Preview" transform="translate(-179.000000, -205.000000)" fill="">
+                     <g id="icons" transform="translate(56.000000, 160.000000)">
+                         <path d="M123,55 L144,55 L144,53 L123,53 L123,55 Z M123,47 L144,47 L144,45 L123,45 L123,47 Z M123,51 L144,51 L144,49 L123,49 L123,51 Z" id="menu_list-[#1527]"></path>
+                     </g>
+                 </g>
+             </g>
+         </svg>
+        </div>
+           <!--  -->
+           <div class="title"><p>C&Aacute;LCULOS FINANCIEROS</p></div>
+         </div>
+        </div>
+        <div id="toggle-colors" class="colors">
+          <!-- <div id="divPalette"></div> -->
+          <div data-bg="rgb(0, 0, 30)"      data-card="rgb(0, 0, 0)"       data-text="rgb(150, 150, 152)" data-border="rgb(120, 120, 120)" data-menu="rgb(0, 4, 21)" class="colors__item colors__item--blue" ></div>
+          <div data-bg="rgb(14, 35, 57)"    data-card="rgb(16, 26, 41)"    data-text="rgb(180, 180, 180)" data-border="rgb(120, 120, 120)" data-menu="rgb(0, 23, 56)" class="colors__item colors__item--b" ></div>
+          <div data-bg="rgb(20, 20, 20)"    data-card="rgb(27, 27, 28)"    data-text="rgb(180, 180, 180)" data-border="rgb(120, 120, 120)" data-menu="rgb(41, 42, 44)" class="colors__item colors__item--green" ></div>
+          <div data-bg="rgb(74, 89, 113)"   data-card="rgb(90, 104, 128)"  data-text="rgb(10, 10, 10)"    data-border="rgb(50, 50, 50)"    data-menu="rgb(78, 96, 124)" class="colors__item colors__item--purple"></div>
+          <div data-bg="rgb(218, 230, 237)" data-card="rgb(233, 247, 255)" data-text="rgb(10, 10, 10)"    data-border="rgb(50, 50, 50)"    data-menu="rgb(185, 200, 209)" class="colors__item colors__item--orange"></div>
+          <!-- <div id="palette" class="colors__itemP colors__itemP--palette"></div> -->
+          <div id="palette" >
+           <svg id="palette_svg" viewBox="20 20 475 475" >
+           <circle class="cls-1" cx="256" cy="169.651" r="137.651"/>
+           <circle class="cls-2" cx="342.349" cy="342.349" r="137.651"/>
+           <circle class="cls-3" cx="169.651" cy="342.349" r="137.651"/>
+           <path class="cls-4" d="M307.3,342.347a137.415,137.415,0,0,1-51.3,107.21A137.861,137.861,0,0,1,211.366,299.9a138.261,138.261,0,0,0,89.27,0A137.515,137.515,0,0,1,307.3,342.347Z"/>
+           <path class="cls-5" d="M386.982,212.1A138,138,0,0,1,300.636,299.9a137.963,137.963,0,0,0-44.63-64.768A137.852,137.852,0,0,1,386.982,212.1Z"/>
+           <path class="cls-6" d="M256.006,235.136a137.94,137.94,0,0,0-44.64,64.768A138,138,0,0,1,125.02,212.1a137.871,137.871,0,0,1,130.986,23.04Z"/>
+           <path class="cls-7" d="M300.636,299.9a138.261,138.261,0,0,1-89.27,0,137.94,137.94,0,0,1,44.64-64.768A137.963,137.963,0,0,1,300.636,299.9Z"/>
+           </svg>
+           <input id="color" type="color" value="#440000" onclick=""> 
+          <!-- <input type="button" value="c" onclick=""> -->
+       </div>
+        <!-- 
+        <a href="#" class="logo nav-link">Logo</a>
+        <button class="nav-toggle" aria-label="Abrir menú">
+          <i class="fas fa-bars"></i>
+        </button> -->
+
+        <ul id="nav-menu" class="nav-menu">
+          <li class="nav-menu-item">
+            <a href="https://miau19.github.io/Miau3" class="nav-menu-link nav-link">C&Aacute;LCULOS FINANCIEROS</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link">Mercados</a>
+          </li>
+
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link nav-menu-link_active">Tipo de cambio</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link nav-menu-link_active">Evolución del dólar</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link">Criptomonedas</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link">Ideas de inversi&oacute;n</a>
+          </li>
+        </ul>
+        
+      </nav>
+  </header>
+     
+  <div class="all">
+
+    <div class="navbar">
+      <p>C&Aacute;LCULOS FINANCIEROS</p>
+    </div><!-- FIN DE: div class="navbar" -->
+
+    <!-- <div class="COLUMNAS_1"> 🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑 -->
+    <!--<div class="COLUMNAS_2"> ❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱ -->
+    <div id="columnLeft" class="column column--left">
+          <article class="card" id="article_left">
+            <div class="card__options">
+              <p class="card__option">
+                <a href="https://miau19.github.io/Miau3"> C&Aacute;LCULOS FINANCIEROS</a>
+              </p>
+              <p class="card__option">
+                <a href="https://www.msn.com/es-pe/dinero/mercados?ocid=winp1taskbar">Mercados</a>
+                
+              </p>
+              <p class="card__option">
+                <a href="https://www.msn.com/es-pe/dinero/conversor-de-divisas/fi-USD-PEN?ocid=winp1taskbar">Tipo de cambio</a>
+              </p>
+              <p class="card__option">
+                <a href="https://especiales.elcomercio.pe/?q=especiales/evolucion-dolar-en-ultima-decada-peru-nndd-ecvisual-ecpm/index.html">Evolución del dólar</a>
+              </p>
+              <p class="card__option">
+                
+                <a href="https://www.msn.com/es-pe/dinero/criptomonedas?ocid=winp1taskbar">Criptomonedas</a>
+              </p>
+              <p class="card__option">
+                <a href="https://www.msn.com/es-pe/dinero/descubrir?ocid=winp1taskbar">Ideas de inversi&oacute;n</a>
+              </p>
+              <div class="">
+                <p class="card__option" style="opacity: 0;">
+                  <a href=""> C&Aacute;LCULOS_FINANCIEROS</a>
+                </p>
+              </div>
+            </div><!-- 
+            <div class="card__image-container">
+              <img src="assets/images/estadisticas-1.jpg" alt="">  
+            </div> -->
+
+          </article>
+    </div><!-- FIN DE div class="column column--left" -->
+
+    <div class="column column--center">
+      <form action="">
+        <article class="card card_center" id="article_center">
+         <div class="subtitle"><p>DEP&Oacute;SITOS APLAZO FIJO:</p></div>
+         <div class="div_padding">
+         <div class="datos" >
+           <p>Moneda:</p>
+            <select id="Selector1" name="Selector"><!-- class="text" -->
+              <option id="option1" value="USD" selected>USD</option>
+              <option id="option2" value="Dolares">Dolares</option>
+              <option id="option3" value="PEN">PEN </Option>
+              <option id="option4" value="Soles">Soles</option>
+              <option id="option5" value="EUR">EUR</option>
+              <option id="option6" value="Euros">Euros</option>
+              <option id="option7" value="€">€</option>
+              <option id="option8" value="$">$</option>
+            </select>
+         </div>    
+         </div>
+         <div class="div_padding">
+         <div class="datos" >
+         <div>
+          <p>Aporte inicial</p><span id="money1">(USD)</span><p>:</p>
+         </div>
+          <input id="cuotaI" name="box" class="text"  type="text" value="30,000.00">
+         </div>
+         </div>
+         <div class="div_padding">
+         <div class="datos" >
+          <div>
+          <p>Aportes periódicos</p><span id="money2">(USD)</span><p>:</p>
+         </div>
+          <input id="cuota" name="box" class="text" type="text" value="1,000.00">
+         </div>
+         </div>
+
+         <div class="div_padding">
+         <div class="datos">
+          <p>Período(días):<span id="span2"></span></p>
+          <select id="Selector2" > <!-- class="text" --> 
+            <option id="rb0" value="1" > 1 </option>
+            <option id="rb1" value="30"> 30 </option>
+            <option id="rb2" value="60"> 60 </option>
+            <option id="rb3" value="90"> 90 </Option>
+            <option id="rb4" value="180">180</option>
+            <option id="rb5" value="270">270</option>
+            <option id="rb6" value="360" selected>360 </Option>
+          </select>       
+          <!-- select          
+          <select class="text" id="">
+            <option value="1">...</option>
+            <option value="2">30 días</option>
+            <option value="3">60 días</option>
+            <option value="4">90 días </Option>
+            <option value="5">120 días</option>
+            <option value="6">150 días</option>
+            <option value="7">180 días</option>
+            <option value="8">210 días</option>
+            <option value="9">240 días </Option>
+            <option value="10">270 días</option>
+            <option value="11">300 días</option>
+            <option value="12">330 días</option>
+            <option value="13" selected>360 días </Option>
+          </select>    
+          -->
+         </div>
+         </div> 
+
+         <div class="div_padding"> <!-- 1 -->
+           <div class="div_padding_TED">
+             <div class="datos" >
+               <div><p>Taza Efectiva&nbsp;</p><span id="span3" class="spanN" >360</span><p>&nbsp;días(%):</p></div>
+               <input id="boxTED" name="box" class="text" type="text" value="3.00">
+             </div>
+            </div>
+            <div class="div_padding_TEA">
+              <div class="datos" >
+                <div><span id="span3_TEA">Taza Efectiva Anual</span><p>(%):</p></div>
+                <input id="tea1" name="box" class="text" type="text" value="3.00"> 
+              </div>
+            </div>
+         </div> <!-- FIN DE 1 -->
+
+           <div class="div_padding">
+             <div class="datos" >
+               <div>
+               <p class="spanD0">Períodos de ahorro<span id="span1" class="spanD1" >(máximo=1,000)</span></p><p><span class="spanD2" >Períodos de ahorro</span></p><p>:</p>
+               </div>
+               <input id="N" name="box" class="text" type="text" value="10" maxlength="">
+             </div>
+            </div> 
+
+
+         <div class="div_padding">
+           <div class="checkboxs">
+            <div>
+              <input id="ck1" class="checkbox" type="checkbox"  checked="checked"  value="">
+              <p>Con aportes periódicos</p>
+           </div>
+            <div>
+              <input id="ck2" class="checkbox" type="checkbox" checked="checked" value="">
+              <p>Sin aportes periódicos</p>
+           </div>
+           </div>
+         </div>
+         
+         <div class="buttons" >
+           <input type="button"  class="button button--primary" onclick="iniciar()" value="Genera una tabla">
+           <input id="btnR" type="reset"  class="button button--primary" onclick="resetar()" value="Resetar">
+         </div>
+
+        </article>
+      </form>
+    </div><!-- FIN DE div class="column column--center" -->
+    <!-- </div>FIN DE div class="COLUMNAS_2"> ❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱❱ -->
+
+    <div class="column column--right">
+        <article class="card" id="article_right">
+          <div class="card_2" id="card_2">
+            <div class="card__image-container">
+              <img src="assets/images/bitcoin-1.jpg" alt="">    
+            </div>  
+            
+            <h3 >
+              <!--  Interés simple e interés compuesto: Ejemplos, gráficos y fórmulas  -->
+              INTERÉS SIMPLE E INTERÉS COMPUESTO: EJEMPLOS, GRÁFICOS Y FÓRMULAS
+            </h3>
+            <p></p>
+            <p>
+              ¿Cuál es la diferencia entre el interés simple y el compuesto? ¿Cómo se calculan? Para una mejora radical de tus finanzas, es fundamental que conozcas ambos conceptos porque te darás cuenta de que actúan de forma exponencial para tus finanzas.
+              <br>
+              Diferencia entre interés simple e interés compuesto
+
+              Básicamente la diferencia está en que en el interés simple, el dinero que generan los intereses se calcula solo sobre 
+              el capital invertido al principio (principal) sin tener en cuenta la posible reinversión de los intereses que vaya 
+              generando nuestro dinero. Por otro lado, en el interés compuesto los intereses obtenidos se reinvierten creando con el 
+              paso del tiempo un "efecto bola de nieve" y obteniéndose un resultado sensiblemente mayor.
+              <br><br>Ejemplo sobre el interés simple y el interés compuesto
+              
+              Imaginemos que tenemos <span class="spanN">10,000</span> dólares ahorrados y los invertimos conseguiendo un
+               <span class="spanN">10%</span> de interés anual durante <span class="spanN">5</span> años.
+              
+              En el caso del interés simple, recibiríamos <span class="spanN">1,000</span> dólares de intereses el primer año, 
+              el segundo año, el tercer año... y así sucesivamente. Cada año, retiraríamos esos <span class="spanN">1,000</span> 
+              dólares y simplemente seguiríamos consiguiendo el <span class="spanN">10%</span> de <span class="spanN">10,000</span> 
+              dólares cada <span class="spanN">12</span> meses. Esto sería así porque el capital sobre los que se calculan los 
+              intereses se mantendría invariable en los <span class="spanN">10,000</span> dólares iniciales. 
+              
+              En el caso del interés compuesto, los <span class="spanN">1,000</span> dólares que consigo de intereses los 
+              reinvertiría y permitiría que el <span class="spanN">10%</span> fuese "trabajando" cada cada vez sobre una cantidad
+               mayor. El primer año, obtendría <span class="spanN">1,000</span> dólares, los sumaría a los <span class="spanN">
+                10,000</span> iniciales y pondría a "trabajar" <span class="spanN">11,000</span> dólares el segundo año. 
+                Esos <span class="spanN">11,000</span> dólares al 10% de interés, generarían ya al año siguiente <span class="spanN">1,100</span> dólares de intereses. Los reinvierto y tendría una nueva cantidad de <span class="spanN">12,100</span> dólares               
+              sobre los que calcular la rentabilidad. Generaría <span class="spanN">1,210</span> dólares. Y así sucesivamente 
+              durante <span class="spanN">5</span> años. 
+              
+              En los primeros años, las diferencias existen pero no son muy abultadas. Sin embargo, tal y como se observa en la 
+              Tabla #1 a medida que pasa el tiempo esas diferencias son cada vez más y más grandes, hasta tal punto que en el último
+               año estaré generando un interés anual de <span class="spanN">1,464.10 </span> dólares en el caso del interés compuesto y
+                solo <span class="spanN">1,000</span> dólares en el caso del interés simple.
+              
+              Si sumamos las cantidades obtenidas en ambos casos, vemos como en el caso del interés simple acabaré con
+               <span class="spanN">15,000</span> dólares (<span class="spanN">10,000</span> iniciales y
+                <span class="spanN">5</span> pagos de <span class="spanN">1,000</span> dólares cada año) y que en el caso del 
+                interés compuesto terminaré con un montante acumulado de <span class="spanN">16,105.10</span> dólares (
+                  <span class="spanN">10,000</span> dólares de inicio y <span class="spanN">6,105.10</span> dólares de intereses).
+                   La diferencia es muy llamativa como puede verse en la siguiente tabla.
+            </p>
+            <p>Tabla #1:</p>
+            <table class="table_ejemplo" >
+              <tr>
+                <td >Año</td><td>Interes simple</td><td>Interés compuesto</td>
+              </tr>
+              <tr>
+                <td><span class="spanN">0</span></td><td><span class="spanN">10,000.00</span><br>(inicial)</td><td><span class="spanN">10,000.00</span><br>(inicial)</td>
+              </tr>
+              <tr>
+                <td><span class="spanN">1</span></td><td><span class="spanN">11,000.00</span></td><td><span class="spanN">11,000.00</span></td>
+              </tr>
+              <tr>
+                <td><span class="spanN">2</span></td><td><span class="spanN">12,000.00</span></td><td><span class="spanN">12,100.00</span></td>
+              </tr>
+              <tr>
+                <td><span class="spanN">3</span></td><td><span class="spanN">13,000.00</span></td><td><span class="spanN">13,310.00</span></td>
+              </tr>
+              <tr>
+                <td><span class="spanN">4</span></td><td><span class="spanN">14,000.00</span></td><td><span class="spanN">14,641.00</span></td>
+              </tr>
+              <tr>
+                <td><span class="spanN">5</span></td><td><span class="spanN">15,000.00</span></td><td><span class="spanN">16,105.10</span></td>
+              </tr>
+            </table><br>
+            <p>
+
+            </p>
+            <p>
+            <h3 >Interés Simple: Fórmula</h3>
+            <p>A continuación se muestra la fórmula del interés simple:</p> 
+            <div class="formula">
+            <p class="">V<sub>f</sub> = V<sub>a</sub> (<span class="spanN">1</span> + n * i)</p> 
+            </div>
+            <p>
+              Donde: <br>
+              V<sub>f</sub> = Valor Futuro<br>
+              V<sub>a</sub> = Valor Actual<br>
+              i = Tasa de interés<br>
+              n = Periodo de tiempo
+            </p>
+            <p>Para aplicar la fórmula anterior se debe tener en cuenta que la tasa de interés y el número de períodos deben estar expresados en la misma unidad de tiempo.
+            </p>
+
+            <h3>Interés Compuesto: Fórmula</h3>
+            <p>A continuación se muestra la fórmula del Interés Compuesto y sus componentes:</p> 
+            <div class="formula">
+              <p class="">V<sub>f</sub> = V<sub>a</sub>(<span class="spanN">1</span> + i) <sup>n</sup></p>
+            </div>
+            <p>
+              Donde: <br>
+              V<sub>f</sub> = Valor Futuro <br>
+              V<sub>a</sub> = Valor Actual<br>
+              i = Tasa de interés<br>
+              n = Periodo de tiempo</p>   
+              <p>Para aplicar la fórmula anterior se debe tener en cuenta que la tasa de interés y el número de períodos deben estar expresados en la misma unidad de tiempo.</p>        
+            </p>
+
+            <h3 >
+              DEPÓSITO A PLAZO FIJO 
+            </h3>
+            <p>CÁLCULO DE INTERESES:</p>
+            <p>Caso <span class="spanN">1</span> : Depósito y cancelación al vencimiento:</p>
+            <p>Se apertura un depósito de <span class="spanN">$30,000</span> a <span class="spanN">180</span> días
+            A plazo fijo, le corresponde una tasa de <span class="spanN">3.00%</span> efectiva anual.</p>
+            <p><span class="spanN">1</span>.-Se calcula la tasa efectiva diaria, la cual se obtiene de la siguiente manera:</p>
+            <div class="formula">
+              <p class="">id = ((<span class="spanN">1</span> + i)<sup><span class="spanN">1/360</span></sup> - <span class="spanN">1</span>)</p>
+            </div>
+            <p>
+              Donde: <br>
+              <p>id: Es la tasa efectiva diaria.<br>
+                i: Es la tasa de interés efectiva anual (<span class="spanN">360</span> días).<br>
+              </p>
+            </p> 
+            <p>id = ((<span class="spanN">1 + 0.030</span>)<sup><span class="spanN">1/360</span></sup> - <span class="spanN">1</span>)<br>id = 0.00008211<br>id = <span class="spanN">0.008211 %</span></p>
+           <p><span class="spanN">2</span>.-Se calcula la tasa de interés del periodo (180 días), la cual se obtiene de la siguiente manera:</p>
+            <div class="formula">
+              <p class="">ip = ((<span class="spanN">1</span> + id)<sup>n</sup> - <span class="spanN">1</span>)</p>
+            </div>
+            <p>
+              Donde: <br>
+              ip: Es la tasa de interés efectiva del periodo de vencimiento del depósito.<br>
+                n: Periodo en que se requiere expresar la tasa de interés.<br>
+              <p>ip = ((<span class="spanN">1 + 0.00008211</span>)<sup>180</sup> - <span class="spanN">1</span>)<br>ip = <span class="spanN">0.014889</span><br>ip = <span class="spanN">1.4889 %</span><br><br>
+            <span class="spanN">3</span>.-Se obtiene el interés(I) al vencimiento:</p>
+            <p>            
+              <div class="formula">
+              <p>I = ip * Depósito</p>
+              </div><p>I = <span class="spanN">0.014889</span> * <span class="spanN">30,000</span> <br>
+            I = <span class="spanN">$ 446.67</span></p> 
+           </p>
+
+            
+          </div>
+
+        </article>
+    </div><!-- FIN DE div class="column column--3_right" -->
+    <!-- </div> FIN DE div class="COLUMNAS_1"> 🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑🞑 -->
+
+   <footer id="h3" class="footer">
+     <div  id="h2"  style="display: none; height: 30px;">
+       <input id="tex1" type="text" style="background-color:#c78800 ;width: 20px;"  value="0"/>
+       <input id="texto2" type="text" style="background-color:#b0abfc ;width: 300px;"  value=""/>  
+       <input id="texto3" type="text" style="background-color:#03445c ;"  value="0"/>
+       <input id="inputX" type="button" value="STOP" style=" background-color: #5760df;font: 12px sans-serif;color: rgb(206, 206, 227);border-radius: 5px;"  onclick="w()"/>
+     </div><br>
+
+   </footer><!-- FIN DE <footer class="footer"> -->
+
+   <footer class="footer2">
+    
+   <div class="cuentaRegresiva">
+    <div id="div0" style="display: none; background-color: #02052e;">
+       <select class="btn" id="S1">
+             <option value="January">January</option>
+             <option value="February">February</option>
+             <option value="March">March</option>
+             <option value="April">April</option>
+             <option value="May">May</option>
+             <option value="June">June</option>
+             <option value="July">July</option>
+             <option value="August" selected="selected">August</option>
+             <option value="September">September</option>
+             <option value="October">October</option>
+             <option value="November">November</option>
+             <option value="December">December</option>
+       </select>
+
+       <input class="t" type="text" id="d" value="25" />
+       <input class="t" type="text" id="y" value="2024" />
+       <input class="t" type="text" id="hh" value="00" />
+       <span  style="font-weight: bold; " >:</span>
+       <input class="t" type="text" id="mm" value="00" />
+       <span style="font-weight: bold; " >:</span>
+       <input class="t" type="text" id="ss" value="00" />
+      
+       <input class="btn" id="startbtn" type="button" value="Star" onclick="startTimer()" />
+       <input class="btn" id="stopbtn" type="button" value="Stop" onclick="stopTimer()" />
+    </div>
+
+    <table class="tablaCR">
+      <tr>
+        <td class="td0" colspan="5" rowspan="1"><div><p>Lista de depósitos a plaso fijo (DPF)</p></div></td>
+      </tr>
+      <tr>
+        <td class="td1" ><div><p>DPF</p></div></td>
+        <td class="td1" ><div><p>Fecha inicio DPF</p></div></td>
+        <td class="td1"><div><p>Fecha actual</p></div></td>
+        <td class="td1"><div><p>Fecha fin DPF</p></div></td>
+        <td class="td1"><div><p>Cuenta Regresiva</p></div></td>
+      </tr>
+      <tr>
+        <td class="td1"><div><p>DPF 1 (360 días)</p></div></td>
+        <td><div class="divF"><div><input class="fid" id="fid" type="text" value="31"/></div><div>/</div><div><input class="fim" id="fim" type="text" value="08"/></div><div>/</div><div><input class="aa" type="text" id="fia" value="2023"/></div></div></td>
+        <td><div class="divF"><div><input class="fd"  id="fd" type="text" value="24" disabled/></div><div class="fd">/</div><div><input  class="fm" id="fm" type="text" value="09" disabled/>  </div><div class="fd">/</div><div><input class="fa"  type="text" id="fa"  value="2023" disabled/></div></div></td>
+        <td><div class="divF"><div><input class="ffd" id="ffd" type="text" value="25"/></div><div>/</div><div><input class="ffm" id="ffm" type="text" value="08"/></div><div>/</div><div><input class="aa" type="text" id="ffa" value="2024"/></div></div></td>
+        <td>
+           <div class="countdown">
+             <div class="cont" >
+                <div class="d1"><input class="d2" id="day" value="0"/></div>  
+                <div class="d3"><div>Dias</div> </div>
+             </div>  
+             <div class="cont">
+              <div class="d1"><input class="d2" id="hour" value="0"/></div>
+                <div class="d3"><div>Horas</div></div>  
+             </div>  
+             <div class="cont">
+              <div class="d1"><input class="d2" id="minute" value="0"/></div>
+               <div class="d3"><div>Minutos</div></div>  
+             </div>  
+             <div class="cont">
+              <div class="d1"><input class="d2" id="second" value="0"/></div>
+               <div class="d3"><div >Segundos</div></div>
+             </div>  
+           </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="td1"><div><p>DPF 2 (360 días)</p></div></td>
+        <td><div class="divF"><div><input class="fid" id="fid2" type="text" value="02"/></div><div>/</div><div><input class="fim" id="fim2" type="text" value="10"/></div><div>/</div><div><input class="aa" type="text" id="fia2" value="2023"/></div></div></td>
+        <td><div class="divF"><div><input class="fd"  id="fd2"  type="text" value="24" disabled/></div><div class="fd">/</div><div><input  class="fm" id="fm2" type="text"  value="09" disabled/> </div><div class="fd">/</div><div><input class="fa" type="text" id="fa2" value="2023" disabled/></div></div></td>
+        <td><div class="divF"><div><input class="ffd" id="ffd2" type="text" value="26"/></div><div>/</div><div><input class="ffm" id="ffm2" type="text" value="09"/></div><div>/</div><div><input class="aa" type="text" id="ffa2" value="2024"/></div></div></td> 
+        <td>
+           <div class="countdown">
+             <div class="cont" >
+              <div class="d1"><input class="d2" id="day2" value="0"/></div>  
+              <div class="d3"><div>Dias</div> </div>
+           </div>  
+           <div class="cont">
+            <div class="d1"><input class="d2" id="hour2" value="0"/></div>
+              <div class="d3"><div>Horas</div></div>  
+           </div>  
+           <div class="cont">
+            <div class="d1"><input class="d2" id="minute2" value="0"/></div>
+             <div class="d3"><div>Minutos</div></div>  
+           </div>  
+           <div class="cont">
+            <div class="d1"><input class="d2" id="second2" value="0"/></div>
+             <div class="d3"><div >Segundos</div></div>
+             </div>  
+           </div>
+        </td>
+      </tr>
+    </table>
+    <!-- 
+    <div class="container">
+      <div class="d1"><p>Cuenta Regresiva</p></div>
+    
+      <div class="countdown">
+        <div class="cont" >
+           <div  class="d2" id="day"></div>  
+           <div class="d3"><div>Dias</div> </div>
+        </div>  
+ 
+        <div class="cont">
+           <div  class="d2" id="hour"></div>
+           <div class="d3"><div>Horas</div></div>  
+        </div>  
+ 
+        <div class="cont">
+          <div  class="d2"  id="minute"></div>
+          <div class="d3"><div>Minutos</div></div>  
+        </div>  
+ 
+        <div class="cont">
+          <div  class="d2"  id="second"></div>
+          <div class="d3"><div >Segundos</div></div>
+        </div>  
+      </div>
+    </div> 
+    -->
+   </div><!-- FIN DE: <div class="cuentaRegresiva"> -->
+   
+   <div class="socialmedia">
+    <div>
+    <svg class="svgInstagram" version="1.1" id="Layer_1" x="0px" y="0px"
+       viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+       <style type="text/css">
+       </style>
+       <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="40.7386" y1="470.924" x2="586.2218" y2="-74.5592">
+        <stop  offset="0.0011" />
+        <stop  offset="0.2094" />
+        <stop  offset="0.3765" />
+        <stop  offset="0.5238" />
+        <stop  offset="0.7394" />
+        <stop  offset="1"      />
+       </linearGradient>
+       <circle class="st0" cx="255.9759" cy="255.6866" r="252.4099"/>
+       <g>
+        <circle class="st1" cx="345.3287" cy="167.778" r="19.6088"/>
+        <path class="st1" d="M258.1521,173.3155c-45.419,0-82.3722,36.952-82.3722,82.371s36.9532,82.3709,82.3722,82.3709
+          s82.3697-36.9519,82.3697-82.3709S303.5711,173.3155,258.1521,173.3155z M258.1521,308.451
+          c-29.0947,0-52.7658-23.6693-52.7658-52.7646c0-29.0947,23.6711-52.7639,52.7658-52.7639s52.7627,23.6692,52.7627,52.7639
+          C310.9148,284.7818,287.2469,308.451,258.1521,308.451z"/>
+        <g>
+          <path class="st1" d="M323.5443,422.9243h-133.537c-55.3983,0-100.4662-45.0678-100.4662-100.4662V188.9154
+            c0-55.399,45.0678-100.4662,100.4662-100.4662h133.537c55.3983,0,100.4718,45.0672,100.4718,100.4662v133.5427
+            C424.0161,377.8564,378.9427,422.9243,323.5443,422.9243z M190.0073,119.9159c-38.0489,0-68.9995,30.9506-68.9995,68.9995
+            v133.5427c0,38.0489,30.9506,68.9995,68.9995,68.9995h133.537c38.0489,0,69.0052-30.9506,69.0052-68.9995V188.9154
+            c0-38.0489-30.9563-68.9995-69.0052-68.9995H190.0073z"/>
+        </g>
+       </g>
+    </svg>
+    </div>
+    <div>
+    <svg class="svgFacebook" viewBox="0 1 23 23">
+        <g transform="translate(0 -1028.4)">
+         <g>
+          <path class="path1" d="m4 1031.4c-1.1046 0-2 0.9-2 2v16c0 1.1 0.8954 2 2 2h16c1.105 0 2-0.9 2-2v-16c0-1.1-0.895-2-2-2h-16z"                                     fill=""/>
+          <path class="path2"d="m4 2c-1.1046 0-2 0.8954-2 2v16c0 1.105 0.8954 2 2 2h16c1.105 0 2-0.895 2-2v-16c0-1.1046-0.895-2-2-2h-16z" transform="translate(0 1028.4)" fill=""/>
+          <path class="path3"d="m17 1034.4c-2.209 0-4 1.8-4 4v3h-2v3h2v7h3v-7h2.454l0.546-3h-3v-3c0-0.6 0.448-1 1-1h2v-3z"                                                fill=""/>
+          <path class="path4"d="m17 5c-2.209 0-4 1.7909-4 4v3h-2v3h2v7h3v-7h2.454l0.546-3h-3v-3c0-0.5523 0.448-1 1-1h2v-3z" transform="translate(0 1028.4)"               fill=""/>
+          <rect class="rect1" transform="translate(0 1028.4)" height="1" width="3" y="22" x="13" 
+          fill=""/>
+         </g>
+        </g>
+    </svg>
+    </div>
+    <div>
+    <svg class="svgYoutube" viewBox="0 0 256 180">
+          <linearGradient id="linearGradient-1" x1="49.9804764%" y1="8.68053889e-07%" x2="49.9804764%" y2="100.030167%">
+              <stop stop-color="" offset="0%"></stop>
+              <stop stop-color="" offset="100%"></stop>
+          </linearGradient>
+      <g>
+          <g>
+              <path  class="path1"d="M101.6,123.2 L170.8,87.4 L101.6,51.3 L101.6,123.2 L101.6,123.2 Z" 
+              fill=""></path>
+              <path  class="path2"d="M101.6,51.3 L162.3,91.8 L170.8,87.4 L101.6,51.3 L101.6,51.3 Z" 
+              fill="" opacity="0.12"></path>
+              <path  class="path3"d="M253.301054,38.8 C253.301054,38.8 250.80203,21.2 243.105037,13.4 C233.408825,3.2 222.513081,3.2 217.415072,2.6 C181.729012,0 128.04998,0 128.04998,0 L127.95002,0 C127.95002,0 74.2709879,0 38.3850059,2.6 C33.3869582,3.2 22.4912144,3.2 12.695041,13.4 C5.09800859,21.2 2.59898477,38.8 2.59898477,38.8 C2.59898477,38.8 0,59.6 0,80.3 L0,99.7 C0,120.4 2.59898477,141.1 2.59898477,141.1 C2.59898477,141.1 5.09800859,158.7 12.795002,166.5 C22.4912144,176.7 35.2862163,176.4 40.9839906,177.4 C61.4759859,179.4 127.95002,180 127.95002,180 C127.95002,180 181.729012,179.9 217.515033,177.3 C222.513081,176.7 233.408825,176.7 243.204998,166.5 C250.901991,158.7 253.401015,141.1 253.401015,141.1 C253.401015,141.1 256,120.4 256,99.7 L256,80.3 C255.900039,59.6 253.301054,38.8 253.301054,38.8 L253.301054,38.8 Z M101.560328,123.2 L101.560328,51.3 L170.733307,87.4 L101.560328,123.2 L101.560328,123.2 Z" 
+               fill="url(#linearGradient-1)"></path>
+          </g>
+      </g>
+    </svg>
+    </div>
+    <div>
+    <svg class="svgTwitter"  viewBox="0 1 23 23" >
+        <g transform="translate(0 -1028.4)">
+          <g>
+          <path class="path1" d="m4 1031.4c-1.1046 0-2 0.9-2 2v16c0 1.1 0.8954 2 2 2h16c1.105 0 2-0.9 2-2v-16c0-1.1-0.895-2-2-2h-16z" 
+          fill=""/>
+          <path class="path2" d="m4 2c-1.1046 0-2 0.8954-2 2v16c0 1.105 0.8954 2 2 2h16c1.105 0 2-0.895 2-2v-16c0-1.1046-0.895-2-2-2h-16z" 
+          fill="" transform="translate(0 1028.4)"/>
+          <path class="path3" fill="" d="m15.474 1036.5c-0.811 0-1.532 0.2-2.107 0.8-0.569 0.6-0.835 1.3-0.835 2.1 0 0.2 0.024 0.4 0.072 0.7-1.198-0.1-2.325-0.4-3.378-0.9-1.0475-0.6-1.9556-1.3-2.6882-2.2-0.2664 0.4-0.3996 0.9-0.3996 1.5 0 0.5 0.1272 1 0.3633 1.4s0.5449 0.7 0.9445 1c-0.4723 0-0.8961-0.1-1.3078-0.4v0.1c0 0.7 0.2119 1.3 0.6539 1.9 0.448 0.5 1.0292 0.8 1.7073 1-0.2543 0-0.5388 0.1-0.7992 0.1-0.1695 0-0.3451 0-0.5448-0.1 0.1876 0.6 0.5509 1.1 1.0534 1.5s1.0716 0.5 1.7074 0.6c-1.0656 0.8-2.3068 1.2-3.669 1.2h-0.6902c1.3622 0.8 2.8637 1.3 4.504 1.3 1.042 0 2.029-0.2 2.943-0.5s1.677-0.8 2.325-1.3c0.648-0.6 1.205-1.2 1.671-1.9 0.472-0.8 0.823-1.5 1.053-2.3s0.363-1.6 0.363-2.4c0-0.1-0.03-0.3-0.036-0.4 0.575-0.4 1.084-0.8 1.49-1.4-0.564 0.2-1.145 0.3-1.708 0.4 0.636-0.4 1.084-0.9 1.308-1.6-0.581 0.3-1.193 0.6-1.853 0.7-0.581-0.6-1.295-0.9-2.143-0.9z"/>
+          <path class="path4" fill="" d="m15.474 1035.5c-0.811 0-1.531 0.2-2.107 0.8-0.569 0.6-0.835 1.3-0.835 2.1 0 0.2 0.024 0.4 0.073 0.7-1.199-0.1-2.325-0.4-3.3788-0.9-1.0474-0.6-1.9556-1.3-2.6882-2.2-0.2664 0.4-0.3995 0.9-0.3995 1.5 0 0.5 0.1271 1 0.3632 1.4s0.5449 0.7 0.9445 1c-0.4722 0-0.8961-0.1-1.3077-0.4v0.1c0 0.7 0.2119 1.3 0.6538 1.9 0.448 0.5 1.0293 0.8 1.7074 1-0.2543 0-0.5389 0.1-0.7992 0.1-0.1695 0-0.3451 0-0.5449-0.1 0.1877 0.6 0.5509 1.1 1.0534 1.5 0.5026 0.4 1.0717 0.5 1.7074 0.6-1.0656 0.8-2.3067 1.2-3.669 1.2h-0.6902c1.3623 0.8 2.8637 1.3 4.5048 1.3 1.041 0 2.028-0.2 2.942-0.5s1.677-0.8 2.325-1.3c0.648-0.6 1.205-1.2 1.671-1.9 0.472-0.8 0.823-1.5 1.053-2.3 0.231-0.8 0.364-1.6 0.364-2.4 0-0.1-0.031-0.3-0.037-0.4 0.576-0.4 1.084-0.8 1.49-1.4-0.563 0.2-1.145 0.3-1.708 0.4 0.636-0.4 1.084-0.9 1.308-1.6-0.581 0.3-1.193 0.6-1.852 0.7-0.582-0.6-1.296-0.9-2.144-0.9z"/>
+         </g>
+        </g>
+    </svg>
+    </div>
+    <div>
+    <svg class="svgWhatsapp" viewBox="-20 -10 550 550" style="enable-background:new 0 0 512 512;" xml:space="preserve" x="0px" y="0px">
+    <g>
+    	<g>
+    		<g>
+    			<path class="st01" d="M255.5895,7.4681c-135.9882,0-246.6193,110.6311-246.6193,246.6178
+    				c0,47.8372,13.5796,93.7824,39.39,133.6586l-37.4639,82.5239c-3.453,7.6089-2.1955,16.5236,3.2249,22.8793
+    				c4.153,4.8687,10.1751,7.5604,16.3867,7.5604c1.8976,0,3.8123-0.2509,5.6956-0.7684l103.2261-28.3211
+    				c35.6362,19.0584,75.6008,29.0895,116.1599,29.0895c135.9867,0,246.6207-110.6339,246.6207-246.6221
+    				C502.2101,118.0992,391.5762,7.4681,255.5895,7.4681z M255.5895,457.6355c-36.0183,0-71.4592-9.582-102.489-27.7137
+    				c-3.3261-1.9432-7.0813-2.9398-10.8637-2.9398c-1.9104,0-3.8265,0.2552-5.6984,0.7684l-67.4345,18.501l23.488-51.7421
+    				c3.1921-7.0357,2.3738-15.2391-2.1456-21.5021c-25.1247-34.825-38.4034-75.9444-38.4034-118.9214
+    				c0-112.2364,91.3103-203.5467,203.5467-203.5467c112.2378,0,203.5481,91.3103,203.5481,203.5467
+    				C459.1376,366.3237,367.8273,457.6355,255.5895,457.6355z"/>
+    		</g>
+    		<g>
+    			<path class="st01" d="M350.407,291.0181c-10.329-6.1775-23.7689-13.0749-35.9356-8.0964
+    				c-9.3325,3.8194-15.2932,18.4312-21.3395,25.8932c-3.1065,3.8294-6.8105,4.4282-11.5765,2.5092
+    				c-35.0389-13.9574-61.8915-37.3499-81.2265-69.5787c-3.2748-5.0098-2.6874-8.959,1.2603-13.6038
+    				c5.8439-6.8746,13.1761-14.6845,14.7558-23.9556c1.5797-9.2669-2.7658-20.1035-6.598-28.3553
+    				c-4.8958-10.5457-10.3704-25.5852-20.9318-31.5502c-9.7146-5.486-22.5029-2.4151-31.1553,4.6306
+    				c-14.9325,12.161-22.1365,31.2123-21.9212,50.0997c0.0613,5.3663,0.7214,10.7182,1.9746,15.8977
+    				c3.0125,12.4576,8.7693,24.0882,15.2505,35.1486c4.8844,8.3374,10.1936,16.4295,15.922,24.2108
+    				c18.7434,25.4612,42.0603,47.5862,69.0569,64.1212c13.4898,8.2618,28.0203,15.5085,43.0654,20.4784
+    				c16.8743,5.5744,31.9095,11.3798,50.1296,7.9182c19.0784-3.6227,37.8845-15.4287,45.4563-33.8142
+    				c2.2397-5.4404,3.3646-11.5038,2.11-17.2521C376.1105,303.8335,360.0203,296.7678,350.407,291.0181z"/>
+    		</g>
+    	</g>
+    </g>
+   </svg>
+    </div>
+    <div>
+    <svg  class="svgLinkedin" viewBox="-5 -5 82 82">
+         <g id="Page-1" stroke="none" stroke-width="1" fill="#ffffff" fill-rule="evenodd">
+              <g id="Social-Icons---Rounded" transform="translate(-376.000000, -267.000000)">
+                  <g id="Linkedin" transform="translate(376.000000, 267.000000)">
+                      <path class="path1" d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" 
+                      fill="" id="Rounded" ></path>
+                      <path class="path2" d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z" 
+                      fill=""></path>
+                  </g>
+              </g>
+          </g>
+    </svg>
+    </div>
+    <!-- 
+    <div>
+    <svg  viewBox="0 0 256 209" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+      <g>
+          <path d="M256,25.4500259 C246.580841,29.6272672 236.458451,32.4504868 225.834156,33.7202333 C236.678503,27.2198053 245.00583,16.9269929 248.927437,4.66307685 C238.779765,10.6812633 227.539325,15.0523376 215.57599,17.408298 C205.994835,7.2006971 192.34506,0.822 177.239197,0.822 C148.232605,0.822 124.716076,24.3375931 124.716076,53.3423116 C124.716076,57.4586875 125.181462,61.4673784 126.076652,65.3112644 C82.4258385,63.1210453 43.7257252,42.211429 17.821398,10.4359288 C13.3005011,18.1929938 10.710443,27.2151234 10.710443,36.8402889 C10.710443,55.061526 19.9835254,71.1374907 34.0762135,80.5557137 C25.4660961,80.2832239 17.3681846,77.9207088 10.2862577,73.9869292 C10.2825122,74.2060448 10.2825122,74.4260967 10.2825122,74.647085 C10.2825122,100.094453 28.3867003,121.322443 52.413563,126.14673 C48.0059695,127.347184 43.3661509,127.988612 38.5755734,127.988612 C35.1914554,127.988612 31.9009766,127.659938 28.694773,127.046602 C35.3777973,147.913145 54.7742053,163.097665 77.7569918,163.52185 C59.7820257,177.607983 37.1354036,186.004604 12.5289147,186.004604 C8.28987161,186.004604 4.10888474,185.75646 0,185.271409 C23.2431033,200.173139 50.8507261,208.867532 80.5109185,208.867532 C177.116529,208.867532 229.943977,128.836982 229.943977,59.4326002 C229.943977,57.1552968 229.893412,54.8901664 229.792282,52.6381454 C240.053257,45.2331635 248.958338,35.9825545 256,25.4500259" fill="#55acee"></path>
+      </g>
+   </svg>
+    </div>
+     -->
+
+   </div><!-- FIN DE div class="socialmedia" --> 
+
+   <div class="end">
+     <p>
+      Copyright <span id="Copyright">2023</span> . All Rights Reserved.
+     </p>
+   </div>
+
+   </footer><!-- FIN DE <footer class="footer2"> -->
+ </div><!-- FIN DE div class="all" -->
+
+ 
+  <script src="js/scripts-1d.js"></script>
+  <script src="js/decimal.min.js"></script>
+  </body>
+</html>
