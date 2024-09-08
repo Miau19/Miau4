@@ -972,6 +972,22 @@ function stopTimer() {clearInterval(timerID);}
 function cuentaRegresiva() {startTimer();}
 /* ################################## FIN DE: Cuenta regresiva 2 #################################### */
 
+
+
+
+const wrapper = document.querySelector(".wrapper");
+const selectBtn = wrapper.querySelector(".select-btn");
+/*
+*/
+//selectBtn.addEventListener("click", () => wrapper.classList.toggle("active"));
+//selectBtn.addEventListener("click", function() { wrapper.classList.toggle("active")});
+selectBtn.addEventListener("click", function() {document.getElementById("img").classList.toggle("activeD")});//toggle Activa y desactiva "active" EN: .active{transform: rotate(360deg);}
+
+
+
+
+
+
   // NOTAS:
   /*
   Podemos eliminar el último elemento de un array.
